@@ -1,0 +1,20 @@
+inherit python
+
+NAME="python-evas"
+VERSION=1.7.0
+RELEASE=1
+CATEGORY="Python"
+SUMMARY="Python bindings for Eina library"
+HOMEPAGE="http://www.enlightenment.org/"
+SRC_URI="http://download.enlightenment.org/releases/BINDINGS/python/${P}.tar.bz2"
+PATCH_URI="01-python26.patch"
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+	cd ${B}
+	cygconf
+	cygmake LIBS="-no-undefined ${LIBPYTHON}"
+}
+
+KEEP_LA_FILES="none"

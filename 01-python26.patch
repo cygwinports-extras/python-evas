@@ -1,0 +1,11 @@
+--- origsrc/python-evas-1.7.0/configure.ac	2012-09-04 12:59:01.000000000 -0500
++++ src/python-evas-1.7.0/configure.ac	2012-09-09 23:37:00.667741100 -0500
+@@ -66,7 +66,7 @@ AC_SUBST(pkgconfig_evas_requires_libs)
+ PKG_CHECK_MODULES([EVAS], [$pkgconfig_evas_requires_libs])
+ wanted_cython_files="${srcdir}/evas/evas.c_evas.pyx"
+ 
+-AM_PATH_PYTHON(2.7)
++AM_PATH_PYTHON(2.6)
+ AM_CHECK_PYTHON_HEADERS(,[AC_MSG_ERROR(could not find Python headers)])
+ 
+ cython_required_version=0.15.1
