@@ -2,12 +2,16 @@ inherit python
 
 NAME="python-evas"
 VERSION=1.7.0
-RELEASE=1
+RELEASE=2
 CATEGORY="Python"
 SUMMARY="Python bindings for Eina library"
 HOMEPAGE="http://www.enlightenment.org/"
 SRC_URI="http://download.enlightenment.org/releases/BINDINGS/python/${P}.tar.bz2"
-PATCH_URI="01-python26.patch"
+
+PKG_NAMES="${NAME} ${NAME}-devel"
+python_evas_CONTENTS="${PYTHON_SITELIB#/} usr/share/"
+python_eval_devel_REQUIRES="python-evas"
+python_evas_devel_CONTENTS="usr/include/ usr/lib/pkgconfig/"
 
 src_compile() {
 	cd ${S}
